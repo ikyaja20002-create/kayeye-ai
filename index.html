@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KAYEYE AI</title>
+
+  <title>Untuk Bopen 💗</title>
 
   <style>
     * {
@@ -13,433 +14,358 @@
       font-family: Arial, sans-serif;
     }
 
-    :root {
-      --bg: #0b0f19;
-      --panel: #111827;
-      --panel2: #182235;
-      --text: #f5f7ff;
-      --muted: #9ca8bc;
-      --border: #263247;
-      --accent: #6c63ff;
-      --accent2: #5148e8;
-      --user: #25345c;
-      --ai: #151d2d;
-    }
-
-    body.light {
-      --bg: #f3f5fa;
-      --panel: #ffffff;
-      --panel2: #eef1f7;
-      --text: #151827;
-      --muted: #697386;
-      --border: #dce1eb;
-      --accent: #5b50e8;
-      --accent2: #463bd0;
-      --user: #dfe4ff;
-      --ai: #ffffff;
-    }
-
     body {
-      background: var(--bg);
-      color: var(--text);
-      height: 100vh;
-      overflow: hidden;
-      transition: 0.25s;
+      min-height: 100vh;
+      color: #fff;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 20% 20%, #ff8fb355, transparent 30%),
+        radial-gradient(circle at 80% 80%, #b56cff44, transparent 30%),
+        linear-gradient(135deg, #170b20, #321329, #180b22);
     }
 
     button {
-      cursor: pointer;
       border: none;
+      cursor: pointer;
+      color: white;
     }
+
+    /* BACKGROUND HEARTS */
+
+    .heart {
+      position: fixed;
+      bottom: -30px;
+      font-size: 20px;
+      opacity: .55;
+      animation: floatUp linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+
+      15% {
+        opacity: .6;
+      }
+
+      to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* APP */
 
     .app {
-      display: flex;
-      height: 100vh;
-    }
-
-    /* SIDEBAR */
-    .sidebar {
-      width: 270px;
-      background: var(--panel);
-      border-right: 1px solid var(--border);
-      padding: 18px;
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      gap: 15px;
-      transition: 0.25s;
+    }
+
+    /* NAVBAR */
+
+    nav {
+      width: 100%;
+      padding: 18px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(12px);
+      background: #160b1dcc;
+      border-bottom: 1px solid #ffffff18;
+      position: sticky;
+      top: 0;
+      z-index: 20;
     }
 
     .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 21px;
+      font-size: 19px;
       font-weight: bold;
-      margin-bottom: 8px;
     }
 
-    .logo-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #756cff, #4439d5);
-      display: grid;
-      place-items: center;
-      font-weight: bold;
-      color: white;
+    .logo span {
+      color: #ff91ba;
     }
 
-    .new-chat {
-      width: 100%;
-      padding: 13px;
-      border-radius: 12px;
-      background: var(--accent);
-      color: white;
-      font-size: 15px;
-      font-weight: bold;
-      transition: 0.2s;
-    }
-
-    .new-chat:hover {
-      background: var(--accent2);
-      transform: translateY(-1px);
-    }
-
-    .history-title {
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: bold;
-      margin-top: 8px;
-    }
-
-    .history {
-      flex: 1;
-      overflow-y: auto;
-    }
-
-    .history-item {
-      padding: 11px;
-      border-radius: 10px;
-      margin-top: 6px;
-      color: var(--muted);
-      font-size: 14px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      cursor: pointer;
-    }
-
-    .history-item:hover {
-      background: var(--panel2);
-      color: var(--text);
-    }
-
-    .sidebar-bottom {
+    .menu {
       display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .side-btn {
-      padding: 11px;
-      border-radius: 10px;
-      background: var(--panel2);
-      color: var(--text);
-      font-size: 14px;
-    }
-
-    .side-btn:hover {
-      background: var(--border);
-    }
-
-    /* MAIN */
-    .main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
-    }
-
-    .topbar {
-      height: 62px;
-      padding: 0 18px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: var(--panel);
-    }
-
-    .mobile-menu {
-      display: none;
-      background: transparent;
-      color: var(--text);
-      font-size: 23px;
-    }
-
-    .status {
-      display: flex;
-      align-items: center;
       gap: 7px;
-      color: var(--muted);
-      font-size: 13px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #36d77b;
+    .menu button {
+      padding: 8px 11px;
+      border-radius: 10px;
+      background: #ffffff12;
+      font-size: 12px;
     }
 
-    /* CHAT */
-    .chat {
-      flex: 1;
-      overflow-y: auto;
-      padding: 25px 15px 150px;
+    .menu button:hover {
+      background: #ff6fa044;
     }
 
-    .welcome {
-      max-width: 720px;
-      margin: 40px auto;
+    /* PAGES */
+
+    .page {
+      display: none;
+      width: 100%;
+      max-width: 900px;
+      margin: auto;
+      padding: 55px 20px;
+      min-height: calc(100vh - 70px);
       text-align: center;
+      animation: pageIn .5s ease;
     }
 
-    .welcome-logo {
-      width: 75px;
-      height: 75px;
-      margin: 0 auto 18px;
-      border-radius: 23px;
-      background: linear-gradient(135deg, #756cff, #4439d5);
-      display: grid;
-      place-items: center;
-      font-size: 27px;
+    .page.active {
+      display: block;
+    }
+
+    @keyframes pageIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* HOME */
+
+    .big-heart {
+      font-size: 75px;
+      animation: pulse 1.8s infinite;
+      margin-bottom: 20px;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.12);
+      }
+    }
+
+    h1 {
+      font-size: clamp(34px, 8vw, 62px);
+      margin-bottom: 12px;
+    }
+
+    .pink {
+      color: #ff91ba;
+    }
+
+    .subtitle {
+      color: #e7cbd8;
+      line-height: 1.7;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .start-btn {
+      margin-top: 30px;
+      padding: 14px 25px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #ff5f9e, #b95cff);
       font-weight: bold;
-      color: white;
-      box-shadow: 0 10px 35px rgba(108,99,255,.25);
+      font-size: 15px;
+      box-shadow: 0 10px 35px #ff5f9e33;
     }
 
-    .welcome h1 {
-      font-size: 30px;
+    .start-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    /* CARDS */
+
+    .section-title {
+      font-size: 34px;
       margin-bottom: 10px;
     }
 
-    .welcome p {
-      color: var(--muted);
-      line-height: 1.6;
+    .section-desc {
+      color: #d8bdca;
+      margin-bottom: 28px;
     }
 
-    .suggestions {
+    .cards {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin-top: 25px;
+      gap: 14px;
+      max-width: 700px;
+      margin: auto;
     }
 
-    .suggestion {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      padding: 14px;
-      border-radius: 13px;
-      color: var(--text);
+    .card {
+      background: #ffffff0d;
+      border: 1px solid #ffffff18;
+      border-radius: 18px;
+      padding: 22px;
       text-align: left;
+      backdrop-filter: blur(10px);
+      transition: .25s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #ff91ba66;
+      background: #ffffff14;
+    }
+
+    .card-icon {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: #d9c5d0;
+      line-height: 1.6;
       font-size: 14px;
     }
 
-    .suggestion:hover {
-      border-color: var(--accent);
+    /* LETTER */
+
+    .letter {
+      max-width: 650px;
+      margin: auto;
+      padding: 30px;
+      background: #fff7fa;
+      color: #402332;
+      border-radius: 20px;
+      text-align: left;
+      box-shadow: 0 20px 70px #0005;
+      transform: rotate(-.5deg);
     }
 
-    .message {
-      max-width: 850px;
-      margin: 0 auto 18px;
-      display: flex;
-      gap: 11px;
-      align-items: flex-start;
+    .letter h2 {
+      margin-bottom: 18px;
+      color: #bd4c79;
     }
 
-    .avatar {
-      min-width: 35px;
-      height: 35px;
-      border-radius: 10px;
-      display: grid;
-      place-items: center;
-      font-size: 12px;
+    .letter p {
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    .signature {
+      text-align: right;
+      margin-top: 20px;
+      color: #bd4c79;
       font-weight: bold;
     }
 
-    .avatar.ai {
-      background: var(--accent);
-      color: white;
-    }
+    /* SURPRISE */
 
-    .avatar.user {
-      background: var(--panel2);
-      color: var(--text);
-    }
-
-    .bubble {
-      max-width: calc(100% - 45px);
-      padding: 13px 15px;
-      border-radius: 14px;
-      line-height: 1.6;
-      font-size: 15px;
-      white-space: pre-wrap;
-      word-break: break-word;
-    }
-
-    .message.ai .bubble {
-      background: var(--ai);
-      border: 1px solid var(--border);
-    }
-
-    .message.user .bubble {
-      background: var(--user);
-    }
-
-    .copy-btn {
-      display: block;
-      margin-top: 8px;
-      background: transparent;
-      color: var(--muted);
-      font-size: 12px;
-      padding: 3px 0;
-    }
-
-    .copy-btn:hover {
-      color: var(--text);
-    }
-
-    .typing {
-      color: var(--muted);
-      font-size: 14px;
-      padding: 5px 0;
-    }
-
-    .typing span {
-      animation: blink 1.2s infinite;
-    }
-
-    .typing span:nth-child(2) {
-      animation-delay: .2s;
-    }
-
-    .typing span:nth-child(3) {
-      animation-delay: .4s;
-    }
-
-    @keyframes blink {
-      0%, 60%, 100% { opacity: .25; }
-      30% { opacity: 1; }
-    }
-
-    /* INPUT */
-    .input-area {
-      position: absolute;
-      bottom: 0;
-      left: 270px;
-      right: 0;
-      padding: 15px 18px 18px;
-      background: linear-gradient(transparent, var(--bg) 25%);
-    }
-
-    .input-box {
-      max-width: 850px;
+    .surprise-box {
+      max-width: 600px;
       margin: auto;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 17px;
-      padding: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      padding: 35px 25px;
+      border-radius: 25px;
+      background: #ffffff0d;
+      border: 1px solid #ffffff1c;
     }
 
-    #userInput {
-      flex: 1;
-      min-width: 0;
-      background: transparent;
-      border: none;
-      outline: none;
-      color: var(--text);
-      padding: 10px;
-      font-size: 15px;
+    .gift {
+      font-size: 85px;
+      cursor: pointer;
+      display: inline-block;
+      animation: shake 2s infinite;
     }
 
-    #userInput::placeholder {
-      color: var(--muted);
+    @keyframes shake {
+      0%, 80%, 100% {
+        transform: rotate(0);
+      }
+
+      85% {
+        transform: rotate(-8deg);
+      }
+
+      90% {
+        transform: rotate(8deg);
+      }
+
+      95% {
+        transform: rotate(-5deg);
+      }
     }
 
-    .send {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      background: var(--accent);
-      color: white;
-      font-size: 18px;
+    .surprise-message {
+      display: none;
+      margin-top: 25px;
+      animation: pageIn .5s ease;
     }
 
-    .send:hover {
-      background: var(--accent2);
+    .surprise-message.show {
+      display: block;
     }
 
-    .footer-text {
-      text-align: center;
-      color: var(--muted);
-      font-size: 11px;
-      margin-top: 7px;
+    .surprise-message h2 {
+      color: #ff91ba;
+      margin-bottom: 12px;
     }
 
-    /* MOBILE */
-    @media (max-width: 700px) {
-      .sidebar {
-        position: fixed;
-        z-index: 10;
-        left: -280px;
-        top: 0;
-        bottom: 0;
-        height: 100%;
+    /* PHOTO PLACEHOLDER */
+
+    .photo-box {
+      height: 220px;
+      border-radius: 18px;
+      background:
+        linear-gradient(135deg, #ff6f9e44, #a85cff44),
+        #ffffff0c;
+      border: 1px dashed #ffffff40;
+      display: grid;
+      place-items: center;
+      margin-bottom: 15px;
+      font-size: 45px;
+    }
+
+    .photo-note {
+      color: #cdb9c5;
+      font-size: 13px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 650px) {
+
+      nav {
+        align-items: flex-start;
+        gap: 12px;
+        flex-direction: column;
       }
 
-      .sidebar.open {
-        left: 0;
+      .menu {
+        width: 100%;
+        justify-content: flex-start;
       }
 
-      .mobile-menu {
-        display: block;
-      }
-
-      .input-area {
-        left: 0;
-      }
-
-      .topbar {
-        padding: 0 12px;
-      }
-
-      .welcome {
-        margin: 25px auto;
-      }
-
-      .welcome h1 {
-        font-size: 25px;
-      }
-
-      .suggestions {
+      .cards {
         grid-template-columns: 1fr;
       }
 
-      .chat {
-        padding-left: 10px;
-        padding-right: 10px;
+      .page {
+        padding-top: 35px;
       }
 
-      .message {
-        max-width: 100%;
-      }
-
-      .bubble {
-        font-size: 14px;
+      .letter {
+        padding: 23px;
       }
     }
   </style>
@@ -449,511 +375,453 @@
 
 <div class="app">
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar" id="sidebar">
+  <!-- NAVIGATION -->
+
+  <nav>
 
     <div class="logo">
-      <div class="logo-icon">K</div>
-      <span>KAYEYE AI</span>
+      Untuk <span>Bopen</span> 💗
     </div>
 
-    <button class="new-chat" onclick="newChat()">＋ Chat Baru</button>
+    <div class="menu">
 
-    <div class="history-title">RIWAYAT CHAT</div>
+      <button onclick="showPage('home')">
+        🏠 Home
+      </button>
 
-    <div class="history" id="history"></div>
+      <button onclick="showPage('letter')">
+        💌 Surat
+      </button>
 
-    <div class="sidebar-bottom">
-      <button class="side-btn" onclick="toggleTheme()">🌙 / ☀️ Mode</button>
-      <button class="side-btn" onclick="clearHistory()">🗑️ Hapus Riwayat</button>
+      <button onclick="showPage('memories')">
+        🌷 Kenangan
+      </button>
+
+      <button onclick="showPage('reasons')">
+        💖 Alasan
+      </button>
+
+      <button onclick="showPage('surprise')">
+        🎁 Kejutan
+      </button>
+
     </div>
 
-  </aside>
+  </nav>
 
-  <!-- MAIN -->
-  <main class="main">
 
-    <header class="topbar">
-      <button class="mobile-menu" onclick="toggleSidebar()">☰</button>
+  <!-- HOME -->
 
-      <div>
-        <strong>KAYEYE AI</strong>
+  <section id="home" class="page active">
+
+    <div class="big-heart">
+      💗
+    </div>
+
+    <h1>
+      Hai, <span class="pink">Bopen</span> 🌷
+    </h1>
+
+    <p class="subtitle">
+      Gue bikin tempat kecil ini khusus buat lo.
+      Bukan sesuatu yang mewah, tapi semoga setiap halaman
+      di sini bisa bikin lo senyum.
+    </p>
+
+    <button class="start-btn" onclick="showPage('letter')">
+      Buka sesuatu 💌
+    </button>
+
+  </section>
+
+
+  <!-- LETTER -->
+
+  <section id="letter" class="page">
+
+    <h2 class="section-title">
+      💌 Sebuah Surat
+    </h2>
+
+    <p class="section-desc">
+      Dibuka khusus untuk Bopen.
+    </p>
+
+    <div class="letter">
+
+      <h2>Untuk Bopen 💗</h2>
+
+      <p>
+        Hai Bopen.
+      </p>
+
+      <p>
+        Gue mungkin nggak selalu jago ngomong langsung,
+        jadi kali ini gue coba taruh beberapa kata di sini.
+      </p>
+
+      <p>
+        Makasih udah jadi seseorang yang punya tempat
+        spesial dalam hari-hari gue.
+      </p>
+
+      <p>
+        Semoga kalau suatu hari lo lagi capek,
+        lo bisa buka halaman ini dan inget kalau
+        ada seseorang yang berharap lo selalu baik-baik aja.
+      </p>
+
+      <p>
+        Jangan lupa senyum ya. Senyum lo berharga. 🌷
+      </p>
+
+      <div class="signature">
+        — Dari seseorang yang peduli sama lo 💗
       </div>
 
-      <div class="status">
-        <span class="dot"></span>
-        Online
-      </div>
-    </header>
+    </div>
 
-    <section class="chat" id="chat">
+  </section>
 
-      <div class="welcome" id="welcome">
 
-        <div class="welcome-logo">K</div>
+  <!-- MEMORIES -->
 
-        <h1>Halo, gue KAYEYE AI 👋</h1>
+  <section id="memories" class="page">
 
-        <p>
-          Asisten AI versi lo. Tanya apa aja, minta bantuan coding,
-          ide website, atau sekadar ngobrol.
-        </p>
+    <h2 class="section-title">
+      🌷 Kenangan
+    </h2>
 
-        <div class="suggestions">
-          <button class="suggestion" onclick="useSuggestion('Bantu gue bikin website keren')">
-            💻 Bantu bikin website
-          </button>
+    <p class="section-desc">
+      Beberapa tempat untuk menyimpan cerita.
+    </p>
 
-          <button class="suggestion" onclick="useSuggestion('Jelasin HTML itu apa')">
-            📚 Jelasin HTML
-          </button>
+    <div class="cards">
 
-          <button class="suggestion" onclick="useSuggestion('Kasih gue ide project')">
-            💡 Kasih ide project
-          </button>
+      <div class="card">
 
-          <button class="suggestion" onclick="useSuggestion('Siapa lo?')">
-            🤖 Siapa lo?
-          </button>
+        <div class="card-icon">
+          🌅
         </div>
 
-      </div>
+        <h3>
+          Momen kecil
+        </h3>
 
-    </section>
-
-    <!-- INPUT -->
-    <div class="input-area">
-
-      <div class="input-box">
-
-        <input
-          id="userInput"
-          type="text"
-          placeholder="Tanya sesuatu ke KAYEYE..."
-          autocomplete="off"
-        >
-
-        <button class="send" onclick="sendMessage()">➤</button>
+        <p>
+          Kadang bukan momen besar yang paling diingat,
+          tapi hal-hal kecil yang bikin hari terasa berbeda.
+        </p>
 
       </div>
 
-      <div class="footer-text">
-        KAYEYE AI • Demo version
+      <div class="card">
+
+        <div class="card-icon">
+          ☁️
+        </div>
+
+        <h3>
+          Hari biasa
+        </h3>
+
+        <p>
+          Hari biasa bisa terasa spesial kalau dijalani
+          bersama orang yang berarti.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <div class="card-icon">
+          🌙
+        </div>
+
+        <h3>
+          Cerita malam
+        </h3>
+
+        <p>
+          Buat semua obrolan random, tawa,
+          dan cerita yang pernah dibagi.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <div class="card-icon">
+          📸
+        </div>
+
+        <h3>
+          Foto kita
+        </h3>
+
+        <div class="photo-box">
+          📷
+        </div>
+
+        <p class="photo-note">
+          Nanti bagian ini bisa lo ganti dengan foto sendiri.
+        </p>
+
       </div>
 
     </div>
 
-  </main>
+  </section>
+
+
+  <!-- REASONS -->
+
+  <section id="reasons" class="page">
+
+    <h2 class="section-title">
+      💖 Beberapa Alasan
+    </h2>
+
+    <p class="section-desc">
+      Kenapa Bopen punya tempat spesial.
+    </p>
+
+    <div class="cards">
+
+      <div class="card">
+
+        <div class="card-icon">
+          😊
+        </div>
+
+        <h3>
+          Bikin senyum
+        </h3>
+
+        <p>
+          Karena ada orang yang kehadirannya
+          bisa bikin suasana jadi lebih menyenangkan.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <div class="card-icon">
+          🌷
+        </div>
+
+        <h3>
+          Punya arti
+        </h3>
+
+        <p>
+          Nggak semua orang bisa punya tempat
+          spesial di hati seseorang.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <div class="card-icon">
+          ✨
+        </div>
+
+        <h3>
+          Beda
+        </h3>
+
+        <p>
+          Ada orang yang cukup hadir,
+          dan entah kenapa hari terasa lebih baik.
+        </p>
+
+      </div>
+
+      <div class="card">
+
+        <div class="card-icon">
+          💗
+        </div>
+
+        <h3>
+          Karena Bopen
+        </h3>
+
+        <p>
+          Ya... karena lo adalah lo.
+          Sesederhana itu.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SURPRISE -->
+
+  <section id="surprise" class="page">
+
+    <div class="surprise-box">
+
+      <h2 class="section-title">
+        🎁 Ada sesuatu...
+      </h2>
+
+      <p class="section-desc">
+        Coba pencet hadiahnya.
+      </p>
+
+      <div
+        class="gift"
+        onclick="openSurprise()"
+      >
+        🎁
+      </div>
+
+      <div
+        id="surpriseMessage"
+        class="surprise-message"
+      >
+
+        <h2>
+          Surprise buat Bopen 💗
+        </h2>
+
+        <p>
+          Kalau lo sampai di sini,
+          berarti lo berhasil menemukan pesan rahasia.
+        </p>
+
+        <br>
+
+        <p>
+          Semoga hari lo selalu punya alasan
+          buat tersenyum. 🌷
+        </p>
+
+        <br>
+
+        <strong>
+          Jangan lupa bahagia ya, Bopen ✨
+        </strong>
+
+      </div>
+
+    </div>
+
+  </section>
 
 </div>
 
+
 <script>
 
-  const chat = document.getElementById("chat");
-  const input = document.getElementById("userInput");
-  const historyBox = document.getElementById("history");
-  const welcome = document.getElementById("welcome");
-  const sidebar = document.getElementById("sidebar");
-
-  let messages = JSON.parse(localStorage.getItem("kayeye_messages")) || [];
-
   /* =========================
-     LOAD CHAT
+     PAGE NAVIGATION
   ========================= */
 
-  function loadChat() {
+  function showPage(pageName) {
 
-    if (messages.length > 0) {
-      welcome.style.display = "none";
+    const pages = document.querySelectorAll(".page");
 
-      messages.forEach(msg => {
-        createMessage(msg.text, msg.sender, false);
-      });
+    pages.forEach(page => {
+      page.classList.remove("active");
+    });
+
+    const target = document.getElementById(pageName);
+
+    if (target) {
+      target.classList.add("active");
     }
 
-    renderHistory();
-  }
-
-  /* =========================
-     SEND MESSAGE
-  ========================= */
-
-  function sendMessage() {
-
-    const text = input.value.trim();
-
-    if (!text) return;
-
-    welcome.style.display = "none";
-
-    createMessage(text, "user", true);
-
-    input.value = "";
-
-    showTyping();
-
-    setTimeout(() => {
-
-      removeTyping();
-
-      const response = getAIResponse(text);
-
-      createMessage(response, "ai", true);
-
-    }, 700);
-
-  }
-
-  /* =========================
-     ENTER KEY
-  ========================= */
-
-  input.addEventListener("keydown", function(e) {
-
-    if (e.key === "Enter") {
-      sendMessage();
-    }
-
-  });
-
-  /* =========================
-     CREATE MESSAGE
-  ========================= */
-
-  function createMessage(text, sender, save) {
-
-    const wrapper = document.createElement("div");
-
-    wrapper.className = "message " + sender;
-
-    const avatar = document.createElement("div");
-
-    avatar.className = "avatar " + sender;
-
-    avatar.textContent = sender === "ai" ? "K" : "YOU";
-
-    const content = document.createElement("div");
-
-    content.className = "bubble";
-
-    const messageText = document.createElement("div");
-
-    messageText.textContent = text;
-
-    content.appendChild(messageText);
-
-    if (sender === "ai") {
-
-      const copy = document.createElement("button");
-
-      copy.className = "copy-btn";
-
-      copy.textContent = "📋 Copy";
-
-      copy.onclick = function() {
-
-        navigator.clipboard.writeText(text);
-
-        copy.textContent = "✓ Copied";
-
-        setTimeout(() => {
-          copy.textContent = "📋 Copy";
-        }, 1500);
-
-      };
-
-      content.appendChild(copy);
-
-    }
-
-    wrapper.appendChild(avatar);
-    wrapper.appendChild(content);
-
-    chat.appendChild(wrapper);
-
-    chat.scrollTop = chat.scrollHeight;
-
-    if (save) {
-
-      messages.push({
-        text: text,
-        sender: sender
-      });
-
-      localStorage.setItem(
-        "kayeye_messages",
-        JSON.stringify(messages)
-      );
-
-      renderHistory();
-
-    }
-
-  }
-
-  /* =========================
-     AI RESPONSE
-  ========================= */
-
-  function getAIResponse(text) {
-
-    const t = text.toLowerCase();
-
-    if (
-      t.includes("halo") ||
-      t.includes("hai") ||
-      t.includes("hello") ||
-      t.includes("p")
-    ) {
-      return "Halo juga 😎 Gue KAYEYE AI. Ada yang mau lo tanyain?";
-    }
-
-    if (
-      t.includes("siapa lo") ||
-      t.includes("kamu siapa") ||
-      t.includes("lu siapa")
-    ) {
-      return "Gue KAYEYE AI 🤖, asisten digital buatan lo. Sekarang gue masih versi demo lokal.";
-    }
-
-    if (
-      t.includes("html")
-    ) {
-      return "HTML adalah bahasa yang dipakai untuk menyusun struktur halaman website. Contohnya: judul, paragraf, tombol, gambar, dan form.";
-    }
-
-    if (
-      t.includes("css")
-    ) {
-      return "CSS dipakai buat mempercantik website. Dengan CSS lo bisa ngatur warna, ukuran, posisi, layout, animasi, dan tampilan HP.";
-    }
-
-    if (
-      t.includes("javascript") ||
-      t.includes("js")
-    ) {
-      return "JavaScript bikin website jadi interaktif. Misalnya tombol bisa diklik, chat bisa muncul, tema bisa berubah, dan data bisa disimpan.";
-    }
-
-    if (
-      t.includes("website") ||
-      t.includes("web")
-    ) {
-      return "Bisa banget. Struktur dasarnya biasanya HTML untuk struktur, CSS untuk tampilan, dan JavaScript untuk interaksi. KAYEYE sendiri juga dibuat dengan tiga itu.";
-    }
-
-    if (
-      t.includes("coding") ||
-      t.includes("kode") ||
-      t.includes("program")
-    ) {
-      return "Kalau mau belajar coding, mulai dari HTML → CSS → JavaScript. Jangan cuma copy-paste; coba ubah sedikit-sedikit supaya ngerti cara kerjanya.";
-    }
-
-    if (
-      t.includes("github")
-    ) {
-      return "GitHub bisa dipakai buat menyimpan kode dan mempublikasikan website menggunakan GitHub Pages. Itu juga yang sekarang dipakai KAYEYE.";
-    }
-
-    if (
-      t.includes("ide project") ||
-      t.includes("ide proyek")
-    ) {
-      return "Nih beberapa ide: 🤖 chatbot, 🎮 game sederhana, 💰 kalkulator keuangan demo, 📚 website belajar, 🎵 music player, atau 🌐 portfolio pribadi.";
-    }
-
-    if (
-      t.includes("terima kasih") ||
-      t.includes("makasih") ||
-      t.includes("thanks")
-    ) {
-      return "Sama-sama bg 😎🔥";
-    }
-
-    if (
-      t.includes("keren")
-    ) {
-      return "Wkwk mantap 😎 Kita masih bisa upgrade KAYEYE jauh lagi.";
-    }
-
-    return "Menarik 👀 Gue masih versi demo, jadi belum punya akses ke AI internet secara real-time. Tapi gue tetap bisa bantu dari fitur yang udah ditanam di KAYEYE.";
-  }
-
-  /* =========================
-     TYPING
-  ========================= */
-
-  function showTyping() {
-
-    const typing = document.createElement("div");
-
-    typing.className = "message ai";
-
-    typing.id = "typing";
-
-    typing.innerHTML = `
-      <div class="avatar ai">K</div>
-      <div class="typing">
-        KAYEYE lagi mikir<span>.</span><span>.</span><span>.</span>
-      </div>
-    `;
-
-    chat.appendChild(typing);
-
-    chat.scrollTop = chat.scrollHeight;
-  }
-
-  function removeTyping() {
-
-    const typing = document.getElementById("typing");
-
-    if (typing) {
-      typing.remove();
-    }
-
-  }
-
-  /* =========================
-     NEW CHAT
-  ========================= */
-
-  function newChat() {
-
-    messages = [];
-
-    localStorage.removeItem("kayeye_messages");
-
-    chat.innerHTML = "";
-
-    chat.appendChild(welcome);
-
-    welcome.style.display = "block";
-
-    renderHistory();
-
-    closeSidebar();
-
-  }
-
-  /* =========================
-     CLEAR HISTORY
-  ========================= */
-
-  function clearHistory() {
-
-    if (!confirm("Hapus semua riwayat chat?")) {
-      return;
-    }
-
-    messages = [];
-
-    localStorage.removeItem("kayeye_messages");
-
-    newChat();
-
-  }
-
-  /* =========================
-     HISTORY
-  ========================= */
-
-  function renderHistory() {
-
-    historyBox.innerHTML = "";
-
-    if (messages.length === 0) {
-
-      const empty = document.createElement("div");
-
-      empty.style.color = "var(--muted)";
-      empty.style.fontSize = "13px";
-      empty.style.padding = "10px 0";
-
-      empty.textContent = "Belum ada chat";
-
-      historyBox.appendChild(empty);
-
-      return;
-    }
-
-    const userMessages = messages.filter(
-      msg => msg.sender === "user"
-    );
-
-    userMessages.slice(-10).reverse().forEach(msg => {
-
-      const item = document.createElement("div");
-
-      item.className = "history-item";
-
-      item.textContent = msg.text;
-
-      item.onclick = function() {
-        chat.scrollTop = chat.scrollHeight;
-        closeSidebar();
-      };
-
-      historyBox.appendChild(item);
-
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
     });
 
   }
 
+
   /* =========================
-     SUGGESTION
+     SURPRISE
   ========================= */
 
-  function useSuggestion(text) {
+  function openSurprise() {
 
-    input.value = text;
+    const message =
+      document.getElementById("surpriseMessage");
 
-    sendMessage();
+    message.classList.add("show");
+
+    createHearts(12);
 
   }
 
+
   /* =========================
-     THEME
+     FLOATING HEARTS
   ========================= */
 
-  function toggleTheme() {
+  function createHeart() {
 
-    document.body.classList.toggle("light");
+    const heart = document.createElement("div");
 
-    localStorage.setItem(
-      "kayeye_theme",
-      document.body.classList.contains("light")
-        ? "light"
-        : "dark"
-    );
+    heart.className = "heart";
+
+    const symbols = [
+      "💗",
+      "💖",
+      "💕",
+      "💓",
+      "🌷",
+      "✨"
+    ];
+
+    heart.textContent =
+      symbols[Math.floor(Math.random() * symbols.length)];
+
+    heart.style.left =
+      Math.random() * 100 + "%";
+
+    heart.style.animationDuration =
+      (5 + Math.random() * 7) + "s";
+
+    heart.style.fontSize =
+      (14 + Math.random() * 16) + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 13000);
 
   }
 
-  /* =========================
-     MOBILE SIDEBAR
-  ========================= */
 
-  function toggleSidebar() {
-    sidebar.classList.toggle("open");
+  function createHearts(amount) {
+
+    for (let i = 0; i < amount; i++) {
+
+      setTimeout(() => {
+        createHeart();
+      }, i * 100);
+
+    }
+
   }
 
-  function closeSidebar() {
-    sidebar.classList.remove("open");
-  }
 
   /* =========================
-     LOAD THEME
+     START BACKGROUND
   ========================= */
 
-  if (localStorage.getItem("kayeye_theme") === "light") {
-    document.body.classList.add("light");
-  }
+  setInterval(createHeart, 900);
 
-  /* =========================
-     START
-  ========================= */
-
-  loadChat();
+  createHearts(8);
 
 </script>
 
