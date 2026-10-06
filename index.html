@@ -154,4 +154,700 @@ section{
   50%{transform:translateY(8px)}
 }
 
-/* heading
+/* heading */
+.title{
+  text-align:center;
+  margin-bottom:35px;
+}
+
+.title h2{
+  font-size:40px;
+  margin-bottom:10px;
+}
+
+.title p{
+  color:#aaa;
+}
+
+/* glass */
+.glass{
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.13);
+  backdrop-filter:blur(20px);
+  border-radius:25px;
+  padding:30px;
+  box-shadow:0 20px 60px rgba(0,0,0,.3);
+}
+
+/* surat */
+.letter{
+  max-width:700px;
+  margin:auto;
+  line-height:2;
+  color:#eee;
+}
+
+.letter .top{
+  text-align:center;
+  font-size:40px;
+  margin-bottom:20px;
+}
+
+.letter p{
+  margin-bottom:18px;
+}
+
+.signature{
+  text-align:right;
+  margin-top:30px;
+  color:#ffabd9;
+}
+
+/* cards */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+}
+
+.card{
+  padding:25px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:22px;
+  transition:.35s;
+  cursor:pointer;
+}
+
+.card:hover{
+  transform:translateY(-8px) scale(1.02);
+  background:rgba(255,100,180,.1);
+  border-color:rgba(255,120,200,.4);
+}
+
+.card .icon{
+  font-size:35px;
+  margin-bottom:15px;
+}
+
+.card h3{
+  margin-bottom:10px;
+}
+
+.card p{
+  color:#bbb;
+  line-height:1.7;
+}
+
+/* message */
+.message-box{
+  text-align:center;
+  max-width:650px;
+  margin:auto;
+}
+
+.message{
+  min-height:120px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:21px;
+  line-height:1.8;
+  color:#ffd9ef;
+  margin-bottom:25px;
+}
+
+.btn{
+  border:none;
+  padding:13px 22px;
+  border-radius:30px;
+  color:white;
+  background:linear-gradient(135deg,#d83d91,#7437b8);
+  cursor:pointer;
+  font-size:15px;
+  box-shadow:0 10px 30px rgba(216,61,145,.25);
+  transition:.3s;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 15px 35px rgba(216,61,145,.4);
+}
+
+/* gallery */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:15px;
+}
+
+.photo{
+  aspect-ratio:1/1;
+  border-radius:20px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.12);
+  cursor:pointer;
+  background:rgba(255,255,255,.05);
+}
+
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.4s;
+}
+
+.photo:hover img{
+  transform:scale(1.08);
+}
+
+.photo-placeholder{
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#aaa;
+  font-size:15px;
+  text-align:center;
+  padding:20px;
+}
+
+/* surprise */
+.surprise{
+  text-align:center;
+}
+
+.gift{
+  font-size:100px;
+  cursor:pointer;
+  display:inline-block;
+  animation:float 2.5s infinite;
+  transition:.3s;
+}
+
+.gift:hover{
+  transform:scale(1.15);
+}
+
+@keyframes float{
+  50%{transform:translateY(-12px)}
+}
+
+.secret{
+  display:none;
+  margin:30px auto 0;
+  max-width:600px;
+  animation:appear .8s ease;
+}
+
+@keyframes appear{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* fullscreen */
+.viewer{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.92);
+  z-index:999;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.viewer img{
+  max-width:95%;
+  max-height:90%;
+  border-radius:15px;
+}
+
+.close{
+  position:absolute;
+  top:20px;
+  right:25px;
+  font-size:35px;
+  cursor:pointer;
+}
+
+/* floating hearts */
+.heart{
+  position:fixed;
+  bottom:-30px;
+  color:#ff6fbd;
+  pointer-events:none;
+  z-index:1;
+  animation:rise linear forwards;
+}
+
+@keyframes rise{
+  from{
+    transform:translateY(0) scale(.7) rotate(0);
+    opacity:0;
+  }
+  15%{opacity:1}
+  to{
+    transform:translateY(-110vh) scale(1.3) rotate(360deg);
+    opacity:0;
+  }
+}
+
+/* mobile */
+@media(max-width:600px){
+
+  nav{
+    width:95%;
+    gap:3px;
+  }
+
+  nav button{
+    padding:8px 10px;
+    font-size:12px;
+  }
+
+  section{
+    padding-top:120px;
+  }
+
+  .glass{
+    padding:22px;
+  }
+
+  .hero h1{
+    font-size:55px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .title h2{
+    font-size:32px;
+  }
+
+  .letter{
+    font-size:15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<nav>
+  <button onclick="go('home')">home</button>
+  <button onclick="go('surat')">surat</button>
+  <button onclick="go('pesan')">pesan</button>
+  <button onclick="go('alasan')">alasan</button>
+  <button onclick="go('galeri')">galeri</button>
+  <button onclick="go('kejutan')">kejutan</button>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="hero">
+  <div class="hero-content">
+
+    <div class="badge">untuk seseorang yang spesial 💗</div>
+
+    <h1>bopen</h1>
+
+    <div class="main-heart">💗</div>
+
+    <p>
+      aku bikin tempat kecil ini cuma buat kamu.<br>
+      bukan karena aku jago bikin website,<br>
+      tapi karena aku pengen punya satu tempat<br>
+      buat nyimpen semua hal kecil tentang kamu.
+    </p>
+
+    <div class="scroll">
+      ↓ coba lihat semuanya
+    </div>
+
+  </div>
+</section>
+
+<!-- SURAT -->
+<section id="surat">
+  <div class="container">
+
+    <div class="title">
+      <h2>surat kecil 💌</h2>
+      <p>ada beberapa hal yang pengen aku sampein</p>
+    </div>
+
+    <div class="glass letter">
+
+      <div class="top">💌</div>
+
+      <p>
+        hai bopen,
+      </p>
+
+      <p>
+        aku sebenernya bingung mau mulai dari mana,
+        karena ada banyak banget hal yang pengen aku bilang
+        tapi kadang susah buat diungkapin langsung.
+      </p>
+
+      <p>
+        jadi aku bikin website kecil ini.
+        mungkin sederhana, tapi setiap bagian di sini
+        aku bikin sambil mikirin kamu.
+      </p>
+
+      <p>
+        aku suka hal-hal kecil tentang kamu.
+        cara kamu ngobrol, cara kamu ketawa,
+        hal-hal random yang kamu ceritain,
+        bahkan momen kecil yang mungkin menurut kamu biasa aja.
+      </p>
+
+      <p>
+        buat aku, semuanya punya tempat sendiri.
+      </p>
+
+      <p>
+        aku nggak tau nanti bakal sejauh apa perjalanan kita,
+        tapi untuk sekarang aku cuma mau bilang
+        kalau aku seneng banget bisa kenal kamu.
+      </p>
+
+      <p>
+        makasih ya udah jadi bagian dari hari-hari aku.
+        makasih udah bikin banyak momen yang akhirnya
+        jadi sesuatu yang pengen aku inget terus.
+      </p>
+
+      <p>
+        semoga setiap kali kamu buka website ini,
+        kamu inget kalau ada seseorang yang selalu seneng
+        waktu bisa bikin kamu tersenyum.
+      </p>
+
+      <div class="signature">
+        dari seseorang yang sayang sama kamu 💗
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PESAN -->
+<section id="pesan">
+  <div class="container">
+
+    <div class="title">
+      <h2>pesan buat kamu 💭</h2>
+      <p>klik tombolnya kalau pengen baca yang lain</p>
+    </div>
+
+    <div class="glass message-box">
+
+      <div id="message" class="message">
+        kamu nggak harus jadi sempurna buat jadi seseorang yang berarti.
+      </div>
+
+      <button class="btn" onclick="newMessage()">
+        pesan lainnya 💗
+      </button>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ALASAN -->
+<section id="alasan">
+  <div class="container">
+
+    <div class="title">
+      <h2>kenapa kamu? 🫶</h2>
+      <p>sebenernya masih banyak banget alasannya</p>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="icon">🌷</div>
+        <h3>karena kamu</h3>
+        <p>
+          nggak perlu jadi orang lain buat bikin aku seneng.
+          kamu jadi diri kamu sendiri aja udah cukup.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">✨</div>
+        <h3>hal-hal kecil</h3>
+        <p>
+          mungkin buat kamu biasa aja,
+          tapi hal kecil dari kamu sering jadi hal
+          yang bikin hari aku lebih baik.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">💗</div>
+        <h3>cara kamu</h3>
+        <p>
+          ada sesuatu dari cara kamu ngobrol,
+          ketawa, dan cerita yang selalu bikin aku nyaman.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🌙</div>
+        <h3>rasa nyaman</h3>
+        <p>
+          sama kamu aku bisa jadi diri sendiri
+          tanpa harus mikirin harus keliatan seperti apa.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🫶</div>
+        <h3>kamu penting</h3>
+        <p>
+          sesimpel itu.
+          kehadiran kamu punya arti yang lebih besar
+          dari yang mungkin kamu sadari.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">💫</div>
+        <h3>karena kamu spesial</h3>
+        <p>
+          bukan karena kamu harus sempurna,
+          tapi karena nggak ada orang lain yang bisa jadi kamu.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GALERI -->
+<section id="galeri">
+  <div class="container">
+
+    <div class="title">
+      <h2>galeri kita 📸</h2>
+      <p>tempat buat nyimpen momen yang pengen diinget</p>
+    </div>
+
+    <div class="glass">
+
+      <div class="gallery">
+
+        <div class="photo" onclick="openPhoto('https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=800&q=80')">
+          <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=800&q=80">
+        </div>
+
+        <div class="photo" onclick="openPhoto('https://images.unsplash.com/photo-1494774157365-9e04c6720e47?auto=format&fit=crop&w=800&q=80')">
+          <img src="https://images.unsplash.com/photo-1494774157365-9e04c6720e47?auto=format&fit=crop&w=800&q=80">
+        </div>
+
+        <div class="photo">
+          <div class="photo-placeholder">
+            foto kamu bisa ditambahin di sini nanti 💗
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- KEJUTAN -->
+<section id="kejutan">
+  <div class="container">
+
+    <div class="title">
+      <h2>ada sesuatu 🎁</h2>
+      <p>coba klik hadiahnya</p>
+    </div>
+
+    <div class="glass surprise">
+
+      <div class="gift" onclick="openGift()">
+        🎁
+      </div>
+
+      <div id="secret" class="secret glass">
+
+        <h2 style="margin-bottom:15px;">
+          surprise 💗
+        </h2>
+
+        <p style="line-height:2;color:#ddd;">
+          kalau kamu sampai baca bagian ini,
+          berarti kamu udah keliling cukup jauh hehe.
+          <br><br>
+          aku cuma mau bilang sekali lagi...
+          <br><br>
+          makasih udah hadir.
+          makasih udah jadi kamu.
+          dan makasih karena tanpa sadar,
+          kamu udah bikin banyak hari aku jadi lebih berarti.
+          <br><br>
+          semoga kamu selalu punya alasan buat senyum.
+          dan kalau suatu hari kamu lagi nggak baik-baik aja,
+          semoga kamu inget kalau kamu tetap berharga.
+          <br><br>
+          💗
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- VIEWER -->
+<div id="viewer" class="viewer" onclick="closePhoto()">
+
+  <div class="close">×</div>
+
+  <img id="viewerImg" src="" onclick="event.stopPropagation()">
+
+</div>
+
+<script>
+
+/* pindah section */
+function go(id){
+  document.getElementById(id).scrollIntoView({
+    behavior:"smooth"
+  });
+}
+
+
+/* pesan random */
+const messages = [
+
+"kamu nggak harus jadi sempurna buat jadi seseorang yang berarti.",
+
+"kalau hari kamu lagi berat, semoga kamu inget kalau kamu nggak sendirian.",
+
+"aku suka cara kamu bikin hal sederhana terasa lebih berarti.",
+
+"semoga hari ini ada sesuatu yang bikin kamu senyum.",
+
+"kalau aku bisa nyimpen satu hal dari setiap hari, mungkin aku bakal pilih momen waktu kamu bikin aku senyum.",
+
+"aku nggak selalu bisa bilang langsung, tapi kamu berarti buat aku.",
+
+"jangan lupa istirahat ya, kamu juga pantas punya waktu buat diri sendiri.",
+
+"aku harap kamu selalu punya alasan kecil buat bahagia.",
+
+"ada banyak hal yang nggak bisa dijelasin dengan kata-kata, dan mungkin perasaan aku ke kamu salah satunya.",
+
+"kalau suatu hari kamu lupa betapa berharganya kamu, buka website ini lagi ya.",
+
+"aku seneng pernah menemukan seseorang seperti kamu.",
+
+"mungkin dunia ini luas banget, tapi aku bersyukur pernah dipertemukan sama kamu."
+
+];
+
+function newMessage(){
+
+  const box=document.getElementById("message");
+
+  const random=
+    messages[Math.floor(Math.random()*messages.length)];
+
+  box.style.opacity="0";
+
+  setTimeout(()=>{
+
+    box.textContent=random;
+    box.style.opacity="1";
+
+  },250);
+
+}
+
+
+/* hadiah */
+function openGift(){
+
+  const secret=document.getElementById("secret");
+
+  secret.style.display="block";
+
+}
+
+
+/* fullscreen foto */
+function openPhoto(src){
+
+  document.getElementById("viewerImg").src=src;
+
+  document.getElementById("viewer").style.display="flex";
+
+}
+
+function closePhoto(){
+
+  document.getElementById("viewer").style.display="none";
+
+}
+
+
+/* hati terbang */
+function createHeart(){
+
+  const heart=document.createElement("div");
+
+  heart.className="heart";
+
+  const hearts=["💗","💖","💕","💓","💞","💘"];
+
+  heart.textContent=
+    hearts[Math.floor(Math.random()*hearts.length)];
+
+  heart.style.left=
+    Math.random()*100+"vw";
+
+  heart.style.fontSize=
+    (12+Math.random()*20)+"px";
+
+  heart.style.animationDuration=
+    (5+Math.random()*5)+"s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(()=>{
+    heart.remove();
+  },10000);
+
+}
+
+setInterval(createHeart,700);
+
+
+/* pesan awal */
+setTimeout(()=>{
+  newMessage();
+},500);
+
+</script>
+
+</body>
+  </html>
