@@ -1,829 +1,157 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Untuk Bopen 💗</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      min-height: 100vh;
-      color: #fff;
-      overflow-x: hidden;
-      background:
-        radial-gradient(circle at 20% 20%, #ff8fb355, transparent 30%),
-        radial-gradient(circle at 80% 80%, #b56cff44, transparent 30%),
-        linear-gradient(135deg, #170b20, #321329, #180b22);
-    }
-
-    button {
-      border: none;
-      cursor: pointer;
-      color: white;
-    }
-
-    /* BACKGROUND HEARTS */
-
-    .heart {
-      position: fixed;
-      bottom: -30px;
-      font-size: 20px;
-      opacity: .55;
-      animation: floatUp linear infinite;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    @keyframes floatUp {
-      from {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0;
-      }
-
-      15% {
-        opacity: .6;
-      }
-
-      to {
-        transform: translateY(-110vh) rotate(360deg);
-        opacity: 0;
-      }
-    }
-
-    /* APP */
-
-    .app {
-      position: relative;
-      z-index: 1;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* NAVBAR */
-
-    nav {
-      width: 100%;
-      padding: 18px 22px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      backdrop-filter: blur(12px);
-      background: #160b1dcc;
-      border-bottom: 1px solid #ffffff18;
-      position: sticky;
-      top: 0;
-      z-index: 20;
-    }
-
-    .logo {
-      font-size: 19px;
-      font-weight: bold;
-    }
-
-    .logo span {
-      color: #ff91ba;
-    }
-
-    .menu {
-      display: flex;
-      gap: 7px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .menu button {
-      padding: 8px 11px;
-      border-radius: 10px;
-      background: #ffffff12;
-      font-size: 12px;
-    }
-
-    .menu button:hover {
-      background: #ff6fa044;
-    }
-
-    /* PAGES */
-
-    .page {
-      display: none;
-      width: 100%;
-      max-width: 900px;
-      margin: auto;
-      padding: 55px 20px;
-      min-height: calc(100vh - 70px);
-      text-align: center;
-      animation: pageIn .5s ease;
-    }
-
-    .page.active {
-      display: block;
-    }
-
-    @keyframes pageIn {
-      from {
-        opacity: 0;
-        transform: translateY(15px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* HOME */
-
-    .big-heart {
-      font-size: 75px;
-      animation: pulse 1.8s infinite;
-      margin-bottom: 20px;
-    }
-
-    @keyframes pulse {
-      0%, 100% {
-        transform: scale(1);
-      }
-
-      50% {
-        transform: scale(1.12);
-      }
-    }
-
-    h1 {
-      font-size: clamp(34px, 8vw, 62px);
-      margin-bottom: 12px;
-    }
-
-    .pink {
-      color: #ff91ba;
-    }
-
-    .subtitle {
-      color: #e7cbd8;
-      line-height: 1.7;
-      max-width: 600px;
-      margin: auto;
-    }
-
-    .start-btn {
-      margin-top: 30px;
-      padding: 14px 25px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, #ff5f9e, #b95cff);
-      font-weight: bold;
-      font-size: 15px;
-      box-shadow: 0 10px 35px #ff5f9e33;
-    }
-
-    .start-btn:hover {
-      transform: translateY(-2px);
-    }
-
-    /* CARDS */
-
-    .section-title {
-      font-size: 34px;
-      margin-bottom: 10px;
-    }
-
-    .section-desc {
-      color: #d8bdca;
-      margin-bottom: 28px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-      max-width: 700px;
-      margin: auto;
-    }
-
-    .card {
-      background: #ffffff0d;
-      border: 1px solid #ffffff18;
-      border-radius: 18px;
-      padding: 22px;
-      text-align: left;
-      backdrop-filter: blur(10px);
-      transition: .25s;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: #ff91ba66;
-      background: #ffffff14;
-    }
-
-    .card-icon {
-      font-size: 30px;
-      margin-bottom: 12px;
-    }
-
-    .card h3 {
-      margin-bottom: 8px;
-    }
-
-    .card p {
-      color: #d9c5d0;
-      line-height: 1.6;
-      font-size: 14px;
-    }
-
-    /* LETTER */
-
-    .letter {
-      max-width: 650px;
-      margin: auto;
-      padding: 30px;
-      background: #fff7fa;
-      color: #402332;
-      border-radius: 20px;
-      text-align: left;
-      box-shadow: 0 20px 70px #0005;
-      transform: rotate(-.5deg);
-    }
-
-    .letter h2 {
-      margin-bottom: 18px;
-      color: #bd4c79;
-    }
-
-    .letter p {
-      line-height: 1.8;
-      margin-bottom: 15px;
-    }
-
-    .signature {
-      text-align: right;
-      margin-top: 20px;
-      color: #bd4c79;
-      font-weight: bold;
-    }
-
-    /* SURPRISE */
-
-    .surprise-box {
-      max-width: 600px;
-      margin: auto;
-      padding: 35px 25px;
-      border-radius: 25px;
-      background: #ffffff0d;
-      border: 1px solid #ffffff1c;
-    }
-
-    .gift {
-      font-size: 85px;
-      cursor: pointer;
-      display: inline-block;
-      animation: shake 2s infinite;
-    }
-
-    @keyframes shake {
-      0%, 80%, 100% {
-        transform: rotate(0);
-      }
-
-      85% {
-        transform: rotate(-8deg);
-      }
-
-      90% {
-        transform: rotate(8deg);
-      }
-
-      95% {
-        transform: rotate(-5deg);
-      }
-    }
-
-    .surprise-message {
-      display: none;
-      margin-top: 25px;
-      animation: pageIn .5s ease;
-    }
-
-    .surprise-message.show {
-      display: block;
-    }
-
-    .surprise-message h2 {
-      color: #ff91ba;
-      margin-bottom: 12px;
-    }
-
-    /* PHOTO PLACEHOLDER */
-
-    .photo-box {
-      height: 220px;
-      border-radius: 18px;
-      background:
-        linear-gradient(135deg, #ff6f9e44, #a85cff44),
-        #ffffff0c;
-      border: 1px dashed #ffffff40;
-      display: grid;
-      place-items: center;
-      margin-bottom: 15px;
-      font-size: 45px;
-    }
-
-    .photo-note {
-      color: #cdb9c5;
-      font-size: 13px;
-    }
-
-    /* RESPONSIVE */
-
-    @media (max-width: 650px) {
-
-      nav {
-        align-items: flex-start;
-        gap: 12px;
-        flex-direction: column;
-      }
-
-      .menu {
-        width: 100%;
-        justify-content: flex-start;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-      .page {
-        padding-top: 35px;
-      }
-
-      .letter {
-        padding: 23px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-<div class="app">
-
-  <!-- NAVIGATION -->
-
-  <nav>
-
-    <div class="logo">
-      Untuk <span>Bopen</span> 💗
-    </div>
-
-    <div class="menu">
-
-      <button onclick="showPage('home')">
-        🏠 Home
-      </button>
-
-      <button onclick="showPage('letter')">
-        💌 Surat
-      </button>
-
-      <button onclick="showPage('memories')">
-        🌷 Kenangan
-      </button>
-
-      <button onclick="showPage('reasons')">
-        💖 Alasan
-      </button>
-
-      <button onclick="showPage('surprise')">
-        🎁 Kejutan
-      </button>
-
-    </div>
-
-  </nav>
-
-
-  <!-- HOME -->
-
-  <section id="home" class="page active">
-
-    <div class="big-heart">
-      💗
-    </div>
-
-    <h1>
-      Hai, <span class="pink">Bopen</span> 🌷
-    </h1>
-
-    <p class="subtitle">
-      Gue bikin tempat kecil ini khusus buat lo.
-      Bukan sesuatu yang mewah, tapi semoga setiap halaman
-      di sini bisa bikin lo senyum.
-    </p>
-
-    <button class="start-btn" onclick="showPage('letter')">
-      Buka sesuatu 💌
-    </button>
-
-  </section>
-
-
-  <!-- LETTER -->
-
-  <section id="letter" class="page">
-
-    <h2 class="section-title">
-      💌 Sebuah Surat
-    </h2>
-
-    <p class="section-desc">
-      Dibuka khusus untuk Bopen.
-    </p>
-
-    <div class="letter">
-
-      <h2>Untuk Bopen 💗</h2>
-
-      <p>
-        Hai Bopen.
-      </p>
-
-      <p>
-        Gue mungkin nggak selalu jago ngomong langsung,
-        jadi kali ini gue coba taruh beberapa kata di sini.
-      </p>
-
-      <p>
-        Makasih udah jadi seseorang yang punya tempat
-        spesial dalam hari-hari gue.
-      </p>
-
-      <p>
-        Semoga kalau suatu hari lo lagi capek,
-        lo bisa buka halaman ini dan inget kalau
-        ada seseorang yang berharap lo selalu baik-baik aja.
-      </p>
-
-      <p>
-        Jangan lupa senyum ya. Senyum lo berharga. 🌷
-      </p>
-
-      <div class="signature">
-        — Dari seseorang yang peduli sama lo 💗
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- MEMORIES -->
-
-  <section id="memories" class="page">
-
-    <h2 class="section-title">
-      🌷 Kenangan
-    </h2>
-
-    <p class="section-desc">
-      Beberapa tempat untuk menyimpan cerita.
-    </p>
-
-    <div class="cards">
-
-      <div class="card">
-
-        <div class="card-icon">
-          🌅
-        </div>
-
-        <h3>
-          Momen kecil
-        </h3>
-
-        <p>
-          Kadang bukan momen besar yang paling diingat,
-          tapi hal-hal kecil yang bikin hari terasa berbeda.
-        </p>
-
-      </div>
-
-      <div class="card">
-
-        <div class="card-icon">
-          ☁️
-        </div>
-
-        <h3>
-          Hari biasa
-        </h3>
-
-        <p>
-          Hari biasa bisa terasa spesial kalau dijalani
-          bersama orang yang berarti.
-        </p>
-
-      </div>
-
-      <div class="card">
-
-        <div class="card-icon">
-          🌙
-        </div>
-
-        <h3>
-          Cerita malam
-        </h3>
-
-        <p>
-          Buat semua obrolan random, tawa,
-          dan cerita yang pernah dibagi.
-        </p>
-
-      </div>
-
-      <div class="card">
-
-        <div class="card-icon">
-          📸
-        </div>
-
-        <h3>
-          Foto kita
-        </h3>
-
-        <div class="photo-box">
-          📷
-        </div>
-
-        <p class="photo-note">
-          Nanti bagian ini bisa lo ganti dengan foto sendiri.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- REASONS -->
-
-  <section id="reasons" class="page">
-
-    <h2 class="section-title">
-      💖 Beberapa Alasan
-    </h2>
-
-    <p class="section-desc">
-      Kenapa Bopen punya tempat spesial.
-    </p>
-
-    <div class="cards">
-
-      <div class="card">
-
-        <div class="card-icon">
-          😊
-        </div>
-
-        <h3>
-          Bikin senyum
-        </h3>
-
-        <p>
-          Karena ada orang yang kehadirannya
-          bisa bikin suasana jadi lebih menyenangkan.
-        </p>
-
-      </div>
-
-      <div class="card">
-
-        <div class="card-icon">
-          🌷
-        </div>
-
-        <h3>
-          Punya arti
-        </h3>
-
-        <p>
-          Nggak semua orang bisa punya tempat
-          spesial di hati seseorang.
-        </p>
-
-      </div>
-
-      <div class="card">
-
-        <div class="card-icon">
-          ✨
-        </div>
-
-        <h3>
-          Beda
-        </h3>
-
-        <p>
-          Ada orang yang cukup hadir,
-          dan entah kenapa hari terasa lebih baik.
-        </p>
-
-      </div>
-
-      <div class="card">
-
-        <div class="card-icon">
-          💗
-        </div>
-
-        <h3>
-          Karena Bopen
-        </h3>
-
-        <p>
-          Ya... karena lo adalah lo.
-          Sesederhana itu.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- SURPRISE -->
-
-  <section id="surprise" class="page">
-
-    <div class="surprise-box">
-
-      <h2 class="section-title">
-        🎁 Ada sesuatu...
-      </h2>
-
-      <p class="section-desc">
-        Coba pencet hadiahnya.
-      </p>
-
-      <div
-        class="gift"
-        onclick="openSurprise()"
-      >
-        🎁
-      </div>
-
-      <div
-        id="surpriseMessage"
-        class="surprise-message"
-      >
-
-        <h2>
-          Surprise buat Bopen 💗
-        </h2>
-
-        <p>
-          Kalau lo sampai di sini,
-          berarti lo berhasil menemukan pesan rahasia.
-        </p>
-
-        <br>
-
-        <p>
-          Semoga hari lo selalu punya alasan
-          buat tersenyum. 🌷
-        </p>
-
-        <br>
-
-        <strong>
-          Jangan lupa bahagia ya, Bopen ✨
-        </strong>
-
-      </div>
-
-    </div>
-
-  </section>
-
-</div>
-
-
-<script>
-
-  /* =========================
-     PAGE NAVIGATION
-  ========================= */
-
-  function showPage(pageName) {
-
-    const pages = document.querySelectorAll(".page");
-
-    pages.forEach(page => {
-      page.classList.remove("active");
-    });
-
-    const target = document.getElementById(pageName);
-
-    if (target) {
-      target.classList.add("active");
-    }
-
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-
-  }
-
-
-  /* =========================
-     SURPRISE
-  ========================= */
-
-  function openSurprise() {
-
-    const message =
-      document.getElementById("surpriseMessage");
-
-    message.classList.add("show");
-
-    createHearts(12);
-
-  }
-
-
-  /* =========================
-     FLOATING HEARTS
-  ========================= */
-
-  function createHeart() {
-
-    const heart = document.createElement("div");
-
-    heart.className = "heart";
-
-    const symbols = [
-      "💗",
-      "💖",
-      "💕",
-      "💓",
-      "🌷",
-      "✨"
-    ];
-
-    heart.textContent =
-      symbols[Math.floor(Math.random() * symbols.length)];
-
-    heart.style.left =
-      Math.random() * 100 + "%";
-
-    heart.style.animationDuration =
-      (5 + Math.random() * 7) + "s";
-
-    heart.style.fontSize =
-      (14 + Math.random() * 16) + "px";
-
-    document.body.appendChild(heart);
-
-    setTimeout(() => {
-      heart.remove();
-    }, 13000);
-
-  }
-
-
-  function createHearts(amount) {
-
-    for (let i = 0; i < amount; i++) {
-
-      setTimeout(() => {
-        createHeart();
-      }, i * 100);
-
-    }
-
-  }
-
-
-  /* =========================
-     START BACKGROUND
-  ========================= */
-
-  setInterval(createHeart, 900);
-
-  createHearts(8);
-
-</script>
-
-</body>
-  </html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>untuk bopen 💗</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:
+    radial-gradient(circle at 20% 20%, #4b164d 0%, transparent 35%),
+    radial-gradient(circle at 80% 80%, #25103d 0%, transparent 35%),
+    #09050f;
+  color:white;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* bintang */
+.stars{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  background-image:
+    radial-gradient(#ffffff 1px, transparent 1px),
+    radial-gradient(#ffffff 1px, transparent 1px);
+  background-size:80px 80px, 130px 130px;
+  background-position:0 0, 40px 60px;
+  opacity:.25;
+}
+
+/* nav */
+nav{
+  position:fixed;
+  top:15px;
+  left:50%;
+  transform:translateX(-50%);
+  width:92%;
+  max-width:850px;
+  padding:12px;
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  flex-wrap:wrap;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.15);
+  backdrop-filter:blur(18px);
+  border-radius:25px;
+  z-index:100;
+}
+
+nav button{
+  border:none;
+  color:white;
+  background:transparent;
+  padding:10px 15px;
+  border-radius:18px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+nav button:hover{
+  background:rgba(255,100,190,.2);
+  transform:translateY(-2px);
+}
+
+/* sections */
+section{
+  min-height:100vh;
+  padding:110px 20px 70px;
+  position:relative;
+  z-index:2;
+}
+
+.container{
+  width:100%;
+  max-width:900px;
+  margin:auto;
+}
+
+/* home */
+.hero{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.hero-content{
+  max-width:700px;
+}
+
+.badge{
+  display:inline-block;
+  padding:8px 16px;
+  border-radius:30px;
+  background:rgba(255,105,180,.12);
+  border:1px solid rgba(255,105,180,.3);
+  margin-bottom:20px;
+  color:#ffb4df;
+}
+
+.hero h1{
+  font-size:clamp(48px,10vw,90px);
+  margin-bottom:15px;
+  background:linear-gradient(90deg,#fff,#ff9ed8,#fff);
+  background-size:200%;
+  -webkit-background-clip:text;
+  color:transparent;
+  animation:shine 4s linear infinite;
+}
+
+@keyframes shine{
+  to{background-position:200%}
+}
+
+.hero p{
+  color:#d8c8d8;
+  line-height:1.8;
+  font-size:18px;
+}
+
+.main-heart{
+  font-size:70px;
+  margin:25px;
+  animation:beat 1.3s infinite;
+}
+
+@keyframes beat{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.2)}
+}
+
+.scroll{
+  margin-top:40px;
+  color:#aaa;
+  animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+  50%{transform:translateY(8px)}
+}
+
+/* heading
