@@ -764,7 +764,8 @@
             "Untuk seseorang yang paling spesial di hidupku..."
         </h1>
         
-        <button class="btn-primary" onclick="openSurprise()">
+        <button class="btn-primary" onclick="try{openSurprise();}catch(e){} document.getElementById('opening-screen').style.display='none'; var m=document.getElementById('main-content'); m.style.display='block'; m.style.opacity='1'; m.classList.add('visible'); var t=document.getElementById('musicToggle'); if(t){t.style.opacity='1'; t.style.pointerEvents='auto'; t.classList.add('visible');}">
+			
             Open Your Birthday Surprise 💌
         </button>
     </div>
