@@ -227,8 +227,8 @@
 
         /* Animasi Muncul Saat Scroll */
         .reveal {
-            opacity: 1;
-            transform: translateY(0px);
+            opacity: 0;
+            transform: translateY(30px);
             transition: all 0.9s ease;
         }
 
@@ -692,7 +692,7 @@
             box-shadow: 0 10px 25px rgba(214, 40, 57, 0.35);
             cursor: pointer;
             transition: transform 0.3s ease;
-                  }
+        }
 
         .btn-forever:active {
             transform: scale(0.94);
@@ -764,8 +764,7 @@
             "Untuk seseorang yang paling spesial di hidupku..."
         </h1>
         
-        <button class="btn-primary" onclick="try{openSurprise();}catch(e){} document.getElementById('opening-screen').style.display='none'; var m=document.getElementById('main-content'); m.style.display='block'; m.style.opacity='1'; m.classList.add('visible'); var t=document.getElementById('musicToggle'); if(t){t.style.opacity='1'; t.style.pointerEvents='auto'; t.classList.add('visible');}">
-			
+        <button class="btn-primary" onclick="openSurprise()">
             Open Your Birthday Surprise 💌
         </button>
     </div>
@@ -1199,7 +1198,7 @@ Happy birthday, my favorite person. ❤️</div>
             ctx.moveTo(x, y + topCurveHeight);
             ctx.bezierCurveTo(x, y, x - size / 2, y, x - size / 2, y + topCurveHeight);
             ctx.bezierCurveTo(x - size / 2, y + (size + topCurveHeight) / 2, x, y + (size + topCurveHeight) / 1.4, x, y + size);
-            ctx.bezierCurveTo(x, y + (size + topCurveHeight) / 1.4, x + size / 2, y + (size / 2, y + topCurveHeight);
+            ctx.bezierCurveTo(x, y + (size + topCurveHeight) / 1.4, x + size / 2, y + (size + topCurveHeight) / 2, x + size / 2, y + topCurveHeight);
             ctx.bezierCurveTo(x + size / 2, y, x, y, x, y + topCurveHeight);
             ctx.closePath();
             ctx.fill();
@@ -1413,4 +1412,3 @@ Happy birthday, my favorite person. ❤️</div>
     });
   });
 </script>
-  
